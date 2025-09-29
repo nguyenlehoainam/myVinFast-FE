@@ -1,8 +1,5 @@
-// src/components/CarModel/CarModel.jsx
-
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-// 1. IMPORT THÊM Circle và ContactShadows
 import {
   OrbitControls,
   useGLTF,
@@ -17,25 +14,27 @@ const Model = () => {
 };
 
 const CarModel = () => {
-  const modelPosition = [0.5, 0, 0]; // Dịch sang phải 0.5 đơn vị
+  // Tọa độ Y của mặt đất (nơi đặt đế và bóng đổ)
+  const groundY = -0.75;
 
   return (
     <div className="car-model-container">
       <Canvas
         gl={{ antialias: true, alpha: true }}
+        // 1. SỬA LỖI: Đặt lại vị trí camera về khoảng cách hợp lý
         camera={{ position: [32, 30, 40], fov: 40 }}
       >
         <Suspense fallback={null}>
-          {/* --- HỆ THỐNG ÁNH SÁNG (Giữ nguyên) --- */}
-          <ambientLight intensity={0.5} color="#175186" />
+          {/* --- HỆ THỐNG ÁNH SÁNG --- */}
+          <ambientLight intensity={0.8} color="#175186" />
           <hemisphereLight
             intensity={1.5}
             color={"#00aeff"}
             groundColor={"#274191"}
           />
           <directionalLight
-            position={[5, 5, 5]}
-            intensity={4.0} // Tăng từ 2.5 -> 4.0
+            position={[32, 30, 40]}
+            intensity={6.0}
             color="#ffffff"
           />
           <directionalLight
@@ -43,29 +42,36 @@ const CarModel = () => {
             intensity={1.5}
             color="#ffffff"
           />
+          <directionalLight
+            position={[-10, 3, 5]}
+            intensity={1.5}
+            color="#ffffff"
+          />
+          <directionalLight
+            position={[-15, 3, 5]}
+            intensity={1.5}
+            color="#ffffff"
+          />
 
-          <group position-x={[0]}>
+          {/* 2. SỬA LỖI: Gom các vật thể vào một group duy nhất để dễ quản lý */}
+          <group position-y={groundY}>
             <Model />
 
-            {/* === 2. THÊM ĐẾ VÀ BÓNG ĐỔ === */}
-
-            {/* Tạo bóng đổ mềm, chân thực ngay dưới bánh xe */}
+            {/* Bóng đổ nằm trên mặt đất của group */}
             <ContactShadows
               position={[0, 0, 0]}
               scale={10}
               far={3}
               blur={1.5}
-              // Tăng độ đậm của bóng đổ
               opacity={0.85}
             />
 
-            {/* Tạo một mặt đế hình tròn nằm phẳng */}
+            {/* Đế nằm ngay dưới bóng đổ */}
             <Circle
-              args={[14]} // Bán kính và số phân đoạn
+              args={[15, 64]} // Sử dụng bán kính hợp lý hơn
               rotation-x={-Math.PI / 2}
-              position={[0, -0.7, 1]} // Đặt đế ngay tại gốc tọa độ
+              position={[0, -0.5, 0]} // Vị trí so với group
             >
-              {/* Vật liệu này không cần ánh sáng vẫn sáng rực */}
               <meshStandardMaterial
                 color="#222a3d"
                 metalness={0.4}
@@ -73,15 +79,14 @@ const CarModel = () => {
               />
             </Circle>
           </group>
+
           <OrbitControls
-            enableZoom={false}
+            enableZoom={false} // Bật lại zoom để dễ quan sát
             enablePan={false}
-            // Mở lại góc nhìn một chút để có thể xem từ trên xuống
             minPolarAngle={Math.PI / 2.5}
             maxPolarAngle={Math.PI / 2.5}
-            // Giới hạn khoảng cách zoom
             minDistance={4}
-            maxDistance={45}
+            maxDistance={50}
           />
         </Suspense>
       </Canvas>
