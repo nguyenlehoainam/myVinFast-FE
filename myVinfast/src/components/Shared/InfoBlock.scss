@@ -1,0 +1,45 @@
+/* src/components/Shared/InfoBlock.scss */
+.info-block {
+  background-color: var(--panel-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 25px; // Tăng từ 20px lên 25px
+  backdrop-filter: blur(12px);
+
+  .info-block-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .info-block-icon {
+    font-size: 1.2rem;
+  }
+
+  .info-block-body {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .info-block-value {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--primary-text);
+  }
+
+  .info-block-unit {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--secondary-text);
+  }
+
+  .info-block-description {
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+    margin: 10px 0 0 0;
+  }
+}

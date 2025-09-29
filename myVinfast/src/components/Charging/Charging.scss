@@ -1,0 +1,38 @@
+.charging-screen {
+  padding: 40px;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: var(--secondary-text);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .charging-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+
+    grid-template-areas:
+      "level status time"
+      "temp consumption consumption";
+
+    .grid-item-level {
+      grid-area: level;
+    }
+    .grid-item-status {
+      grid-area: status;
+    }
+    .grid-item-time {
+      grid-area: time;
+    }
+    .grid-item-temp {
+      grid-area: temp;
+    }
+    .grid-item-consumption {
+      grid-area: consumption;
+    }
+  }
+}

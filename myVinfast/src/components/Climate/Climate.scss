@@ -1,0 +1,119 @@
+/* Thêm animation quay tròn */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fan-spinning {
+  animation: spin 2s linear infinite;
+}
+
+.climate-screen {
+  padding: 40px;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: var(--secondary-text);
+    text-align: center;
+  }
+
+  .climate-status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+
+  .controls-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 900px; /* Tăng độ rộng tối đa */
+    margin: 0 auto;
+  }
+
+  .stepper-control {
+    background-color: var(--panel-background);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .stepper-label {
+      color: var(--secondary-text);
+      margin-bottom: 15px;
+    }
+
+    .stepper-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        background: var(--hover-background);
+        border: 1px solid var(--border-color);
+        color: var(--primary-text);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        &:hover {
+          border-color: var(--accent-color);
+        }
+      }
+
+      .stepper-value {
+        font-size: 2rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  /* Gom các nút bấm vào một khu vực duy nhất */
+  .toggle-controls-grid {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .control-button {
+    background: var(--panel-background);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    color: var(--secondary-text);
+    padding: 15px;
+    width: 110px; /* Cố định chiều rộng cho các nút */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    svg {
+      font-size: 1.8rem;
+    }
+
+    &:hover {
+      color: var(--primary-text);
+      border-color: var(--accent-color);
+    }
+
+    /* Tăng độ nổi bật cho nút đang active */
+    &.active {
+      background-color: var(--accent-color); /* Thêm màu nền */
+      color: var(--primary-text);
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+  }
+}
