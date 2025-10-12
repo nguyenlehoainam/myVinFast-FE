@@ -1,0 +1,395 @@
+{
+  "status": "SUCCESS",
+  "data": [
+    {
+      "groupName": "Driving Status",
+      "parameters": [
+        {
+          "paramName": "speed",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Driving Status"
+        },
+        {
+          "paramName": "rpm",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Driving Status"
+        },
+        {
+          "paramName": "gear",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Driving Status"
+        },
+        {
+          "paramName": "odometer",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Driving Status"
+        },
+        {
+          "paramName": "tripDistance",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Driving Status"
+        },
+        {
+          "paramName": "driveMode",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Driving Status"
+        }
+      ]
+    },
+    {
+      "groupName": "Battery & Energy",
+      "parameters": [
+        {
+          "paramName": "batteryLevel",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Battery & Energy"
+        },
+        {
+          "paramName": "chargingStatus",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Battery & Energy"
+        },
+        {
+          "paramName": "rangeRemaining",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Battery & Energy"
+        },
+        {
+          "paramName": "batteryTemperature",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Battery & Energy"
+        },
+        {
+          "paramName": "chargingPower",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Battery & Energy"
+        },
+        {
+          "paramName": "chargingTimeRemaining",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Battery & Energy"
+        },
+        {
+          "paramName": "energyConsumption",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Battery & Energy"
+        }
+      ]
+    },
+    {
+      "groupName": "Engine & Powertrain",
+      "parameters": [
+        {
+          "paramName": "motorPower",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Engine & Powertrain"
+        },
+        {
+          "paramName": "motorTemperature",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Engine & Powertrain"
+        },
+        {
+          "paramName": "torqueOutput",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Engine & Powertrain"
+        },
+        {
+          "paramName": "coolantTemperature",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Engine & Powertrain"
+        },
+        {
+          "paramName": "oilPressure",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Engine & Powertrain"
+        }
+      ]
+    },
+    {
+      "groupName": "Braking & Safety",
+      "parameters": [
+        {
+          "paramName": "brakeStatus",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Braking & Safety"
+        },
+        {
+          "paramName": "absActive",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Braking & Safety"
+        },
+        {
+          "paramName": "brakePadWear",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Braking & Safety"
+        },
+        {
+          "paramName": "brakeTemperature",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Braking & Safety"
+        },
+        {
+          "paramName": "airbagStatus",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Braking & Safety"
+        }
+      ]
+    },
+    {
+      "groupName": "Tires & Wheels",
+      "parameters": [
+        {
+          "paramName": "tirePressure",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Tires & Wheels"
+        },
+        {
+          "paramName": "tireTemperature",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Tires & Wheels"
+        },
+        {
+          "paramName": "tpmsWarning",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Tires & Wheels"
+        }
+      ]
+    },
+    {
+      "groupName": "Location & Connectivity",
+      "parameters": [
+        {
+          "paramName": "gps.latitude",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Location & Connectivity"
+        },
+        {
+          "paramName": "gps.longitude",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Location & Connectivity"
+        },
+        {
+          "paramName": "gps.speed",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Location & Connectivity"
+        },
+        {
+          "paramName": "signalStrength",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Location & Connectivity"
+        },
+        {
+          "paramName": "gps.altitude",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Location & Connectivity"
+        },
+        {
+          "paramName": "gps.heading",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Location & Connectivity"
+        },
+        {
+          "paramName": "networkStatus",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Location & Connectivity"
+        },
+        {
+          "paramName": "otaStatus",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Location & Connectivity"
+        }
+      ]
+    },
+    {
+      "groupName": "Cabin & Comfort",
+      "parameters": [
+        {
+          "paramName": "doorStatus.front_left",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Cabin & Comfort"
+        },
+        {
+          "paramName": "doorStatus.front_right",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Cabin & Comfort"
+        },
+        {
+          "paramName": "doorStatus.rear_left",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Cabin & Comfort"
+        },
+        {
+          "paramName": "doorStatus.rear_right",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Cabin & Comfort"
+        },
+        {
+          "paramName": "doorStatus.trunk",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Cabin & Comfort"
+        },
+        {
+          "paramName": "lockStatus",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Cabin & Comfort"
+        },
+        {
+          "paramName": "acStatus",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Cabin & Comfort"
+        },
+        {
+          "paramName": "cabinTemperature",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "NUMBER",
+          "groupName": "Cabin & Comfort"
+        },
+        {
+          "paramName": "seatHeating",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Cabin & Comfort"
+        },
+        {
+          "paramName": "headlightStatus",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Cabin & Comfort"
+        }
+      ]
+    },
+    {
+      "groupName": "Faults & Alerts",
+      "parameters": [
+        {
+          "paramName": "checkEngine",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Faults & Alerts"
+        },
+        {
+          "paramName": "batteryFault",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Faults & Alerts"
+        },
+        {
+          "paramName": "brakeFault",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Faults & Alerts"
+        },
+        {
+          "paramName": "coolingFault",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Faults & Alerts"
+        },
+        {
+          "paramName": "motorOverheat",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Faults & Alerts"
+        },
+        {
+          "paramName": "tireLeak",
+          "stringValue": null,
+          "numericValue": null,
+          "valueType": "STRING",
+          "groupName": "Faults & Alerts"
+        }
+      ]
+    }
+  ]
+}

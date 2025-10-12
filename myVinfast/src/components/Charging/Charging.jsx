@@ -11,7 +11,7 @@ import {
 const dynamicData = {
   batteryLevel: 85,
   rangeRemaining: 420,
-  chargingStatus: "Không sạc",
+  chargingStatus: "Not charging",
   chargingPower: 0,
   chargingTimeRemaining: 15,
   batteryTemperature: 28,

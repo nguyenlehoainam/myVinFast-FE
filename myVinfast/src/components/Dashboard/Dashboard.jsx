@@ -7,6 +7,9 @@ import ChargingScreen from "../Charging/Charging";
 import ClimateScreen from "../Climate/Climate";
 import LocationScreen from "../Location/Location";
 import StatusPanel from "../StatusPanel/StatusPanel";
+import MaintenanceScreen from "../Maintenance/MaintenanceScreen";
+import SettingsScreen from "../Settings/SettingsScreen"; // <-- 1. IMPORT component mới
+
 import "./Dashboard.scss";
 
 const Dashboard = () => {
@@ -28,6 +31,10 @@ const Dashboard = () => {
         return <ClimateScreen />;
       case "Location":
         return <LocationScreen />;
+      case "Maintenance": // <-- 2. THÊM case mới
+        return <MaintenanceScreen />;
+      case "Settings": // <-- 2. THÊM case mới
+        return <SettingsScreen />;
       // Thêm các case khác cho Maintenance, Settings...
       case "Dashboard":
       default:
