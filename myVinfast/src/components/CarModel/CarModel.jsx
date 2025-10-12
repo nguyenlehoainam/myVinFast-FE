@@ -14,18 +14,15 @@ const Model = () => {
 };
 
 const CarModel = () => {
-  // Tọa độ Y của mặt đất (nơi đặt đế và bóng đổ)
   const groundY = -0.75;
 
   return (
     <div className="car-model-container">
       <Canvas
         gl={{ antialias: true, alpha: true }}
-        // 1. SỬA LỖI: Đặt lại vị trí camera về khoảng cách hợp lý
         camera={{ position: [32, 30, 40], fov: 40 }}
       >
         <Suspense fallback={null}>
-          {/* --- HỆ THỐNG ÁNH SÁNG --- */}
           <ambientLight intensity={0.8} color="#175186" />
           <hemisphereLight
             intensity={1.5}
@@ -52,12 +49,9 @@ const CarModel = () => {
             intensity={1.5}
             color="#ffffff"
           />
-
-          {/* 2. SỬA LỖI: Gom các vật thể vào một group duy nhất để dễ quản lý */}
           <group position-y={groundY}>
             <Model />
 
-            {/* Bóng đổ nằm trên mặt đất của group */}
             <ContactShadows
               position={[0, 0, 0]}
               scale={10}
@@ -66,11 +60,10 @@ const CarModel = () => {
               opacity={0.85}
             />
 
-            {/* Đế nằm ngay dưới bóng đổ */}
             <Circle
-              args={[15, 64]} // Sử dụng bán kính hợp lý hơn
+              args={[15, 64]}
               rotation-x={-Math.PI / 2}
-              position={[0, -0.5, 0]} // Vị trí so với group
+              position={[0, -0.5, 0]}
             >
               <meshStandardMaterial
                 color="#222a3d"
@@ -81,7 +74,7 @@ const CarModel = () => {
           </group>
 
           <OrbitControls
-            enableZoom={false} // Bật lại zoom để dễ quan sát
+            enableZoom={false}
             enablePan={false}
             minPolarAngle={Math.PI / 2.5}
             maxPolarAngle={Math.PI / 2.5}

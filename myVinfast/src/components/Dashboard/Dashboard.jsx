@@ -6,7 +6,7 @@ import DashboardContent from "../DashboardContent/DashboardContent";
 import ChargingScreen from "../Charging/Charging";
 import ClimateScreen from "../Climate/Climate";
 import LocationScreen from "../Location/Location";
-import StatusPanel from "../StatusPanel/StatusPanel"; // Import StatusPanel ở đây
+import StatusPanel from "../StatusPanel/StatusPanel";
 import "./Dashboard.scss";
 
 const Dashboard = () => {

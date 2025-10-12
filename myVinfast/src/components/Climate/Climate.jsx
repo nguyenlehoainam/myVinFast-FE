@@ -13,7 +13,6 @@ import {
 import { LuWind } from "react-icons/lu";
 import { MdOutlineAirlineSeatReclineNormal } from "react-icons/md";
 
-// --- Component con cho các nút điều khiển ---
 const ControlButton = ({ icon, label, onClick, isActive }) => (
   <button
     className={`control-button ${isActive ? "active" : ""}`}
@@ -42,7 +41,6 @@ const StepperControl = ({ label, value, unit, onDecrease, onIncrease }) => (
   </div>
 );
 
-// --- Component chính của màn hình Climate ---
 const ClimateScreen = () => {
   const [isAcOn, setIsAcOn] = useState(true);
   const [temperature, setTemperature] = useState(22);
@@ -54,8 +52,6 @@ const ClimateScreen = () => {
   return (
     <div className="climate-screen">
       <h1>Climate Control</h1>
-
-      {/* Phần hiển thị trạng thái */}
       <div className="climate-status-grid">
         <InfoBlock
           title="Cabin Temperature"
@@ -78,8 +74,6 @@ const ClimateScreen = () => {
           icon={<FaPowerOff />}
         />
       </div>
-
-      {/* Phần các nút điều khiển */}
       <div className="controls-wrapper">
         <StepperControl
           label="Temperature"
