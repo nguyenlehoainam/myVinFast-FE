@@ -11,7 +11,8 @@ import {
 const dynamicData = {
   batteryLevel: 85,
   rangeRemaining: 420,
-  chargingStatus: "Not charging",
+  // Chỉ dịch giá trị chuỗi
+  chargingStatus: "Không sạc",
   chargingPower: 0,
   chargingTimeRemaining: 15,
   batteryTemperature: 28,
@@ -21,45 +22,47 @@ const dynamicData = {
 const ChargingScreen = () => {
   return (
     <div className="charging-screen">
-      <h1>Charging Status</h1>
+      {/* Dịch tiêu đề */}
+      <h1>Tình trạng sạc</h1>
       <div className="charging-grid">
         <InfoBlock
           className="grid-item-level"
-          title="Battery Level"
+          // Dịch các props là chuỗi văn bản
+          title="Mức pin"
           value={dynamicData.batteryLevel}
           unit="%"
-          description={`Range remaining: ${dynamicData.rangeRemaining} km`}
+          description={`Quãng đường còn lại: ${dynamicData.rangeRemaining} km`}
           icon={<FaBolt />}
         />
         <InfoBlock
           className="grid-item-status"
-          title="Charging Status"
+          title="Trạng thái sạc"
           value={dynamicData.chargingStatus}
-          description={`Power: ${dynamicData.chargingPower} kW`}
+          description={`Công suất: ${dynamicData.chargingPower} kW`}
           icon={<FaBolt />}
         />
         <InfoBlock
           className="grid-item-time"
-          title="Time Remaining"
+          title="Thời gian còn lại"
           value={dynamicData.chargingTimeRemaining}
-          unit="mins"
-          description="Time to full charge"
+          unit="phút"
+          description="Thời gian để sạc đầy"
           icon={<FaClock />}
         />
         <InfoBlock
           className="grid-item-temp"
-          title="Battery Temperature"
+          title="Nhiệt độ pin"
           value={dynamicData.batteryTemperature}
           unit="°C"
-          description="Optimal temperature"
+          description="Nhiệt độ tối ưu"
           icon={<FaThermometerHalf />}
         />
         <InfoBlock
           className="grid-item-consumption"
-          title="Energy Consumption"
+          title="Mức tiêu thụ năng lượng"
           value={dynamicData.energyConsumption}
           unit="kWh/100km"
-          description="Average consumption"
+          description="Mức tiêu thụ trung bình"
           icon={<FaTachometerAlt />}
         />
       </div>
