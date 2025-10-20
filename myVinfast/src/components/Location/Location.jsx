@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import React, { useEffect, useRef, useState } from "react";
+import goongjs from "@goongmaps/goong-js";
+import "@goongmaps/goong-js/dist/goong-js.css";
 import "./Location.scss";
-import L from "leaflet";
 
-const GOONG_MAP_TILES_KEY = import.meta.env.VITE_GOONG_MAP_TILES_KEY;
+const GOONG_API_KEY = import.meta.env.VITE_GOONG_MAP_TILES_KEY;
 
 const dynamicData = {
   latitude: 21.028511,
@@ -12,45 +11,45 @@ const dynamicData = {
   speed: 0,
 };
 
-import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
-import iconUrl from "leaflet/dist/images/marker-icon.png";
-import shadowUrl from "leaflet/dist/images/marker-shadow.png";
-
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: iconRetinaUrl,
-  iconUrl: iconUrl,
-  shadowUrl: shadowUrl,
-});
-
-// Component phụ giúp map di chuyển theo vị trí mới
-const ChangeView = ({ center, zoom }) => {
-  const map = useMap();
-  useEffect(() => {
-    map.setView(center, zoom);
-  }, [center, zoom, map]);
-  return null;
-};
-
 const LocationScreen = () => {
-  const position = [dynamicData.latitude, dynamicData.longitude];
+  const mapContainerRef = useRef(null);
+
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    if (mapRef.current) return;
+
+    goongjs.accessToken = GOONG_API_KEY;
+
+    const positionLngLat = [dynamicData.longitude, dynamicData.latitude];
+    const map = new goongjs.Map({
+      container: mapContainerRef.current,
+      style: "https://tiles.goong.io/assets/goong_map_web.json",
+      center: positionLngLat,
+      zoom: 15,
+    });
+
+    mapRef.current = map;
+
+    map.on("load", () => {
+      const popupContent = `
+          <div>
+            <h4>Vị trí hiện tại</h4>
+            <p>Tốc độ: ${dynamicData.speed} km/h</p>
+          </div>
+        `;
+
+      const popup = new goongjs.Popup({ offset: 25 }).setHTML(popupContent);
+
+      new goongjs.Marker().setLngLat(positionLngLat).setPopup(popup).addTo(map);
+    });
+
+    return () => map.remove();
+  }, []);
 
   return (
     <div className="location-screen">
-      <MapContainer center={position} zoom={15} scrollWheelZoom={true}>
-        <ChangeView center={position} zoom={15} />
-        <TileLayer
-          attribution='&copy; <a href="https://goong.io/">Goong</a>'
-          // Đảm bảo URL bắt đầu bằng https:// và không có lỗi cú pháp
-          url={`https://tiles.goong.io/maps/streets/{z}/{x}/{y}@2x.png?api_key=${GOONG_MAP_TILES_KEY}`}
-        />
-
-        <Marker position={position}>
-          <Popup>
-            Vị trí hiện tại <br /> Tốc độ: {dynamicData.speed} km/h
-          </Popup>
-        </Marker>
-      </MapContainer>
+      <div ref={mapContainerRef} style={{ width: "100%", height: "100vh" }} />
     </div>
   );
 };

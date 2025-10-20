@@ -5,13 +5,11 @@ import "./MaintenanceScreen.scss";
 import { GiCartwheel } from "react-icons/gi";
 import { PiEngineFill } from "react-icons/pi";
 import { TbDisc } from "react-icons/tb";
-import { RiShieldCheckLine } from "react-icons/ri"; // Icon an toàn
-import { FaExclamationTriangle } from "react-icons/fa"; // Icon cảnh báo
+import { RiShieldCheckLine } from "react-icons/ri";
+import { FaExclamationTriangle } from "react-icons/fa";
 
-// Import dữ liệu
 import dynamicSpec from "../../../public/dynamic-spec.json";
 
-// Hàm tiện ích để lấy dữ liệu
 const getDynamicValue = (paramName, defaultValue = "N/A") => {
   for (const group of dynamicSpec.data) {
     const param = group.parameters.find((p) => p.paramName === paramName);
