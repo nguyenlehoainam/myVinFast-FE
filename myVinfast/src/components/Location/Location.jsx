@@ -21,6 +21,8 @@ const LocationScreen = () => {
 
     goongjs.accessToken = GOONG_API_KEY;
 
+    console.log(goongjs.accessToken);
+
     const positionLngLat = [dynamicData.longitude, dynamicData.latitude];
     const map = new goongjs.Map({
       container: mapContainerRef.current,
