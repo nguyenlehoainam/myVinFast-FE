@@ -11,7 +11,6 @@ import {
 const dynamicData = {
   batteryLevel: 85,
   rangeRemaining: 420,
-  // Chỉ dịch giá trị chuỗi
   chargingStatus: "Không sạc",
   chargingPower: 0,
   chargingTimeRemaining: 15,
@@ -22,12 +21,10 @@ const dynamicData = {
 const ChargingScreen = () => {
   return (
     <div className="charging-screen">
-      {/* Dịch tiêu đề */}
       <h1>Tình trạng sạc</h1>
       <div className="charging-grid">
         <InfoBlock
           className="grid-item-level"
-          // Dịch các props là chuỗi văn bản
           title="Mức pin"
           value={dynamicData.batteryLevel}
           unit="%"

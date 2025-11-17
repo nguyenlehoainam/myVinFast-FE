@@ -1,57 +1,77 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useEffect } from "react";
+import { createRoot } from "react-dom/client";
 import goongjs from "@goongmaps/goong-js";
 import "@goongmaps/goong-js/dist/goong-js.css";
 import "./Location.scss";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
-const GOONG_API_KEY = import.meta.env.VITE_GOONG_MAP_TILES_KEY;
-
+const GOONG_MAP_TILES_KEY = import.meta.env.VITE_GOONG_MAP_TILES_KEY;
+console.log(GOONG_MAP_TILES_KEY);
 const dynamicData = {
-  latitude: 21.028511,
-  longitude: 105.804817,
+  latitude: 21.0536,
+  longitude: 105.7345,
   speed: 0,
 };
 
-const LocationScreen = () => {
-  const mapContainerRef = useRef(null);
+goongjs.accessToken = GOONG_MAP_TILES_KEY;
 
-  const mapRef = useRef(null);
+const LocationScreen = () => {
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const markerRoot = useRef(null);
 
   useEffect(() => {
-    if (mapRef.current) return;
+    if (map.current) return;
 
-    goongjs.accessToken = GOONG_API_KEY;
-
-    console.log(goongjs.accessToken);
-
-    const positionLngLat = [dynamicData.longitude, dynamicData.latitude];
-    const map = new goongjs.Map({
-      container: mapContainerRef.current,
+    map.current = new goongjs.Map({
+      container: mapContainer.current,
       style: "https://tiles.goong.io/assets/goong_map_web.json",
-      center: positionLngLat,
-      zoom: 15,
+      center: [dynamicData.longitude, dynamicData.latitude],
+      zoom: 12,
     });
 
-    mapRef.current = map;
+    map.current.addControl(new goongjs.NavigationControl());
 
-    map.on("load", () => {
-      const popupContent = `
-          <div>
-            <h4>Vị trí hiện tại</h4>
-            <p>Tốc độ: ${dynamicData.speed} km/h</p>
-          </div>
-        `;
+    const el = document.createElement("div");
+    el.className = "custom-marker";
+    markerRoot.current = createRoot(el);
+    markerRoot.current.render(
+      <FaMapMarkerAlt
+        style={{
+          fontSize: "30px",
+          color: "#007AFF",
+          filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.5))",
+        }}
+      />
+    );
+    new goongjs.Marker(el)
+      .setLngLat([dynamicData.longitude, dynamicData.latitude])
+      .setPopup(
+        new goongjs.Popup({ offset: 25 }).setHTML(
+          `<h3>Vị trí xe</h3><p>Tốc độ: ${dynamicData.speed} km/h</p>`
+        )
+      )
+      .addTo(map.current);
 
-      const popup = new goongjs.Popup({ offset: 25 }).setHTML(popupContent);
-
-      new goongjs.Marker().setLngLat(positionLngLat).setPopup(popup).addTo(map);
-    });
-
-    return () => map.remove();
+    return () => {
+      if (markerRoot.current) {
+        markerRoot.current.unmount();
+      }
+      if (map.current) {
+        map.current.remove();
+        map.current = null;
+      }
+    };
   }, []);
 
   return (
     <div className="location-screen">
-      <div ref={mapContainerRef} style={{ width: "100%", height: "100vh" }} />
+      <div ref={mapContainer} className="map-container" />
+      {/* <div className="location-info">
+        <p>Vĩ độ: {dynamicData.latitude}</p>
+        <p>Kinh độ: {dynamicData.longitude}</p>
+        <p>Tốc độ: {dynamicData.speed} km/h</p>
+      </div> */}
     </div>
   );
 };

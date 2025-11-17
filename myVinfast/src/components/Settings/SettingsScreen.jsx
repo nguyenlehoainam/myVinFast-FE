@@ -1,12 +1,8 @@
-// src/components/Settings/SettingsScreen.jsx
 
 import React, { useState } from "react";
 import "./SettingsScreen.scss";
 import { FaChevronDown } from "react-icons/fa";
 
-// --- Component con ---
-
-// Component cho một mục cài đặt có nút bật/tắt (Toggle)
 const ToggleSetting = ({ label, description, isEnabled, onToggle }) => (
   <div className="setting-item">
     <div className="setting-info">
@@ -22,7 +18,6 @@ const ToggleSetting = ({ label, description, isEnabled, onToggle }) => (
   </div>
 );
 
-// Component cho một mục cài đặt có lựa chọn (Dropdown)
 const SelectSetting = ({
   label,
   description,
@@ -53,14 +48,12 @@ const SelectSetting = ({
   </div>
 );
 
-// --- Component chính ---
 
 const SettingsScreen = () => {
-  // Quản lý trạng thái cho các cài đặt
   const [units, setUnits] = useState({
-    temperature: "C", // 'C' or 'F'
-    pressure: "psi", // 'psi' or 'bar'
-    distance: "km", // 'km' or 'miles'
+    temperature: "C", 
+    pressure: "psi", 
+    distance: "km", 
   });
 
   const [adas, setAdas] = useState({

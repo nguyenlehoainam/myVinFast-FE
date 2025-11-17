@@ -1,4 +1,3 @@
-// src/components/InfoCards/InfoCards.jsx
 
 import React from "react";
 import "./InfoCards.scss";

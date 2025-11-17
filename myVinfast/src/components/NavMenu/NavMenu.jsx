@@ -1,6 +1,6 @@
-// src/components/NavMenu/NavMenu.jsx
 
-import React from "react"; // Bỏ useState vì không cần nữa
+
+import React from "react";
 import "./NavMenu.scss";
 import {
   FaTachometerAlt,
@@ -10,8 +10,6 @@ import {
   FaTools,
   FaCog,
 } from "react-icons/fa";
-
-// Component MenuItem không thay đổi
 const MenuItem = ({ icon, label, active, onClick }) => (
   <button className={`menu-item ${active ? "active" : ""}`} onClick={onClick}>
     {icon}
@@ -19,11 +17,7 @@ const MenuItem = ({ icon, label, active, onClick }) => (
   </button>
 );
 
-// 1. NHẬN PROPS TỪ COMPONENT CHA (DASHBOARD)
 const NavMenu = ({ activeItem, setActiveItem }) => {
-  // 2. XÓA BỎ STATE RIÊNG CỦA NAVMENU
-  // const [activeItem, setActiveItem] = useState('Dashboard'); // <-- XÓA DÒNG NÀY
-
   const menuItems = [
     { id: "Dashboard", icon: <FaTachometerAlt />, label: "Dashboard" },
     { id: "Charging", icon: <FaChargingStation />, label: "Charging" },
@@ -44,9 +38,7 @@ const NavMenu = ({ activeItem, setActiveItem }) => {
             key={item.id}
             icon={item.icon}
             label={item.label}
-            // 3. SỬ DỤNG PROPS ĐỂ XÁC ĐỊNH TRẠNG THÁI ACTIVE
             active={activeItem === item.id}
-            // 4. KHI CLICK, GỌI HÀM CỦA COMPONENT CHA
             onClick={() => setActiveItem(item.id)}
           />
         ))}

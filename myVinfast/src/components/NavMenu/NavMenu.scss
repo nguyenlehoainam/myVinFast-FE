@@ -1,8 +1,6 @@
-/* src/components/NavMenu/NavMenu.scss */
 
 .nav-menu-container {
   grid-area: nav;
-  // SỬ DỤNG BIẾN MỚI
   background-color: var(--panel-background);
   backdrop-filter: blur(12px);
   padding: 20px 10px;
@@ -36,19 +34,17 @@
     color: var(--secondary-text);
     background-color: transparent;
     border: none;
-    border-left: 3px solid transparent; // Thêm border trái trong suốt
-    border-radius: 8px; // Giảm bo góc
+    border-left: 3px solid transparent; 
+    border-radius: 8px; 
     cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover {
-      // Sử dụng --hover-background cho rõ ràng
       background-color: var(--hover-background);
       color: var(--primary-text);
     }
 
     &.active {
-      // Sử dụng --hover-background cho rõ ràng
       background-color: var(--hover-background);
       color: var(--primary-text);
       font-weight: 500;

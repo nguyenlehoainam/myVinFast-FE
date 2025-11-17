@@ -1,4 +1,3 @@
-// src/components/Maintenance/MaintenanceScreen.jsx
 
 import React from "react";
 import "./MaintenanceScreen.scss";
@@ -22,7 +21,6 @@ const getDynamicValue = (paramName, defaultValue = "N/A") => {
   return defaultValue;
 };
 
-// --- Component con ---
 
 const SpecItem = ({ label, value, unit }) => (
   <div className="spec-item">
@@ -33,7 +31,6 @@ const SpecItem = ({ label, value, unit }) => (
   </div>
 );
 
-// Component con mới cho các mục cảnh báo (để có style riêng)
 const AlertItem = ({ label, status }) => (
   <div className="spec-item">
     <span className="spec-label">{label}</span>
@@ -43,10 +40,7 @@ const AlertItem = ({ label, status }) => (
   </div>
 );
 
-// --- Component chính ---
-
 const MaintenanceScreen = () => {
-  // Lấy tất cả các giá trị cần thiết
   const tirePressure = getDynamicValue("tirePressure", 0);
   const tireTemperature = getDynamicValue("tireTemperature", 0);
   const tpmsWarning = getDynamicValue("tpmsWarning", "Không");
@@ -66,7 +60,6 @@ const MaintenanceScreen = () => {
       <h1>Tình trạng xe</h1>
 
       <div className="maintenance-grid">
-        {/* --- Khu vực Lốp xe --- */}
         <div className="status-card">
           <div className="card-header">
             <GiCartwheel />
@@ -84,7 +77,6 @@ const MaintenanceScreen = () => {
           </div>
         </div>
 
-        {/* --- Khu vực Hệ thống truyền động --- */}
         <div className="status-card">
           <div className="card-header">
             <PiEngineFill />
@@ -109,7 +101,6 @@ const MaintenanceScreen = () => {
           </div>
         </div>
 
-        {/* --- Khu vực Phanh --- */}
         <div className="status-card">
           <div className="card-header">
             <TbDisc />
@@ -129,7 +120,6 @@ const MaintenanceScreen = () => {
           </div>
         </div>
 
-        {/* --- Khu vực An toàn & Thông tin chung --- */}
         <div className="status-card">
           <div className="card-header">
             <RiShieldCheckLine />
@@ -146,7 +136,6 @@ const MaintenanceScreen = () => {
           </div>
         </div>
 
-        {/* --- Khu vực Cảnh báo Hệ thống --- */}
         <div className="status-card full-width">
           <div className="card-header">
             <FaExclamationTriangle />

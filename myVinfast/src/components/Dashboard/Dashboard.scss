@@ -1,4 +1,3 @@
-/* src/components/Dashboard/Dashboard.scss */
 
 .dashboard-grid-layout {
   display: grid;
@@ -7,7 +6,6 @@
   grid-template-areas: "nav main aside";
   width: 100vw;
   height: 100vh;
-  // Sử dụng ảnh nền mới và màu fallback
   background: var(--primary-background) url("../../assets/background.jpg")
     no-repeat center center;
   background-size: cover;
@@ -19,8 +17,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  // Thêm một lớp phủ mờ để làm nổi bật xe
   &::before {
     content: "";
     position: absolute;
@@ -54,7 +50,6 @@
   }
 }
 .dashboard-grid-layout.main-content-full-width {
-  // thì ép cột main phải chiếm luôn cả cột aside
   .main-content {
     grid-column: main-start / aside-end;
   }

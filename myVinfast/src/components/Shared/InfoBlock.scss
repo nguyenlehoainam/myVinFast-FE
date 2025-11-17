@@ -1,9 +1,9 @@
-/* src/components/Shared/InfoBlock.scss */
+
 .info-block {
   background-color: var(--panel-background);
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  padding: 25px; // Tăng từ 20px lên 25px
+  padding: 25px; 
   backdrop-filter: blur(12px);
 
   .info-block-header {

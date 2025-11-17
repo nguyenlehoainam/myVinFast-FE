@@ -1,5 +1,3 @@
-// src/components/StatusPanel/StatusPanel.jsx
-
 import React from "react";
 import "./StatusPanel.scss";
 import { FaFan } from "react-icons/fa";

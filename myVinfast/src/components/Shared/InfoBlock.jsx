@@ -1,4 +1,4 @@
-// src/components/Shared/InfoBlock.jsx
+
 import React from "react";
 import "./InfoBlock.scss";
 
